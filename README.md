@@ -14,11 +14,13 @@ collection of beginners and intermediate-level React projects
 git clone https://your-repo-url.git
 ```
 
-2. Install dependencies
+2. Go to the project you want to run
+
+3. Install dependencies
 ``` bash
 npm install
 ```
 
-3. Start the dev server
+4. Start the dev server
 ``` bash
 npm run dev
