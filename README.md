@@ -4,7 +4,6 @@ collection of beginners and intermediate-level React projects
 
 ## Tech Stack
 - React
-- TypeScript
 - Tailwind CSS
 - Vite
 
