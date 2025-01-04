@@ -2,14 +2,13 @@ import { createClient } from "@supabase/supabase-js";
 import { Avatar, Navbar } from "flowbite-react";
 import { Dropdown } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
-import { ANON_KEY, SUPABASE_URL } from "../Auth/keys";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
 
-  const supabase = createClient(SUPABASE_URL, ANON_KEY);
+  const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
   const [name, userName] = useState("");
 
   useEffect(() => {

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { SUPABASE_URL, ANON_KEY } from "../Auth/keys";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
-import Register from "./Register";
 import { OuterHeader } from "./OuterHeader";
 const Login = () => {
+  console.log(import.meta.env.SUPABASE_URL);
   const navigate = useNavigate();
   const [loading, isLoading] = useState(false);
 
@@ -19,13 +18,13 @@ const Login = () => {
 
     // validate form
     validationSchema: Yup.object({
-      email: Yup.string()
+    email: Yup.string()
         .email("Invalid email address")
         .required("Email is required"),
       password: Yup.string().required("Enter your password"),
     }),
   });
-  const supabase = createClient(SUPABASE_URL, ANON_KEY);
+  const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
 
   const loginHandle = async (e) => {
     e.preventDefault();

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { SUPABASE_URL, ANON_KEY } from "../Auth/keys";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,7 +7,7 @@ import { OuterHeader } from "./OuterHeader";
 import { Link } from "react-router-dom";
 
 const Register = () => {
-  const supabase = createClient(SUPABASE_URL, ANON_KEY);
+  const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
   const [loading, isLoading] = useState(false);
 
   const formik = useFormik({

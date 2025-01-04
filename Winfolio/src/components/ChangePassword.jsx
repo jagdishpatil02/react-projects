@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { OuterHeader } from "./OuterHeader";
 import { useFormik } from "formik";
-import { SUPABASE_URL, ANON_KEY } from "../Auth/keys";
 import * as Yup from "yup";
 import { createClient } from "@supabase/supabase-js";
 
 const ChangePassword = () => {
-  const supabase = createClient(SUPABASE_URL, ANON_KEY);
+  const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
   const [loading, isLoading] = useState(false);
 
   const [searchParams, setSearchParams] = useState(" ");

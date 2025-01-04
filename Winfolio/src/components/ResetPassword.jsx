@@ -3,12 +3,10 @@ import { ToastContainer, toast } from "react-toastify";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { createClient } from "@supabase/supabase-js";
-import { ANON_KEY, SUPABASE_URL } from "../Auth/keys";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
 
 const ResetPassword = () => {
-  const supabase = createClient(SUPABASE_URL, ANON_KEY);
+  const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
   const [loading, isLoading] = useState(false);
 
   const formik = useFormik({

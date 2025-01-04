@@ -1,12 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
-import { ANON_KEY, SUPABASE_URL } from "../Auth/keys";
 import { ToastContainer, toast } from "react-toastify";
 import html2canvas from "html2canvas";
 
 const Achievements = () => {
   const [achievementsData, setAchievementsData] = useState();
-  const supabase = createClient(SUPABASE_URL, ANON_KEY);
+  const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [achievementBox, setachievementBox] = useState(false);
@@ -57,8 +56,8 @@ const Achievements = () => {
           .from("achievements")
           .select("*")
           .eq("user_id", userId)
-          .gte("created", startDate)
-          .lte("created", endDate);
+          .gte("created_at", startDate)
+          .lte("created_at", endDate);
         setAchievementsData(data);
         console.log("data", data);
 
@@ -79,10 +78,10 @@ const Achievements = () => {
       <div className="w-full flex">
         <select onChange={(e) => setYear(e.target.value)}>
           <option>Select Year</option>
+          <option>2025</option>
           <option>2024</option>
           <option>2023</option>
-          <option>2022</option>
-          <option>2021</option>
+     
         </select>
         <select onChange={(e) => setMonth(e.target.value)} className="mx-4">
           {months.map((month) => (

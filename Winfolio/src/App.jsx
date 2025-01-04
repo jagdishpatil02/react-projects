@@ -1,8 +1,9 @@
 import './App.css';
 import React, { Suspense, lazy } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PrivateRoutes from './utils/PrivateRoutes';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 const Home = lazy(() => import('./components/Home'));
 const Login = lazy(() => import('./components/Login'));
@@ -13,6 +14,7 @@ const ForgotPassword = lazy(() => import('./components/ResetPassword'));
 const ChangePassword = lazy(() => import('./components/ChangePassword'));
 
 function App() {
+
   return (
     <>
       <Router basename='/'>

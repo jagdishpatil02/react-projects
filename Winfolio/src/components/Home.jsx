@@ -1,14 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
-import { useNavigate } from "react-router-dom";
-import { SUPABASE_URL, ANON_KEY } from "../Auth/keys";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { data } from "autoprefixer";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 const Home = () => {
-  const supabase = createClient(SUPABASE_URL, ANON_KEY);
+  const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
   const [loading, isLoading] = useState(false);
 
   const formik = useFormik({
